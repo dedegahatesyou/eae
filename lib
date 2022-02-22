@@ -109,8 +109,8 @@ function library:Window(name)
 
     UiWindow.Name = "UiWindow"
     UiWindow.Parent = TurtleUiLib
-    UiWindow.BackgroundColor3 = Color3.fromRGB(166, 62, 10)
-    UiWindow.BorderColor3 = Color3.fromRGB(166, 62, 10)
+    UiWindow.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+    UiWindow.BorderColor3 = Color3.fromRGB(255, 85, 0)
     UiWindow.Position = UDim2.new(0, xOffset, 0, 20)
     UiWindow.Size = UDim2.new(0, 207, 0, 33)
     UiWindow.ZIndex = 4 + zindex
