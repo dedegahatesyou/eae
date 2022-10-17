@@ -181,7 +181,17 @@ local UIGradient_46 = Instance.new("UIGradient")
 local TextButton_2 = Instance.new("TextButton")
 local shadow = Instance.new("Folder")
 local UmbraShadow = Instance.new("ImageLabel")
+local ToggleAmmo = Instance.new("TextLabel")
+local UIGradient_47 = Instance.new("UIGradient")
 local GradColor = Instance.new("UIGradient")
+local ToggleButton = Instance.new("Frame")
+local togglepress = Instance.new("TextButton")
+local UICorner_35 = Instance.new("UICorner")
+local UIGradient_48 = Instance.new("UIGradient")
+local line = Instance.new("Frame")
+local UIGradient_49 = Instance.new("UIGradient")
+local togglevalue = Instance.new("BoolValue")
+
 
 --Properties:
 
@@ -204,7 +214,6 @@ WelcomeTab.Parent = Tabs
 WelcomeTab.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
 WelcomeTab.Position = UDim2.new(0.00864717271, 0, 0.0213459134, 0)
 WelcomeTab.Size = UDim2.new(0, 586, 0, 253)
-WelcomeTab.Visible = false
 WelcomeTab.ZIndex = 2
 
 UICorner.CornerRadius = UDim.new(0, 15)
@@ -255,6 +264,19 @@ places.Font = Enum.Font.SourceSans
 places.Text = ""
 places.TextColor3 = Color3.fromRGB(0, 0, 0)
 places.TextSize = 14.000
+places.MouseButton1Click:Connect(function()
+
+	local tabs = Tabs
+	local places = tabs.PlacesTab
+	local guns = tabs.GunsTab
+	local welcome = tabs.WelcomeTab
+
+	places.Visible = true
+	guns.Visible = false
+	welcome.Visible = false
+
+end)
+
 
 UICorner_3.CornerRadius = UDim.new(0, 3)
 UICorner_3.Parent = places
@@ -294,6 +316,19 @@ guns.Font = Enum.Font.SourceSans
 guns.Text = ""
 guns.TextColor3 = Color3.fromRGB(0, 0, 0)
 guns.TextSize = 14.000
+guns.MouseButton1Click:Connect(function()
+
+	local tabs = Tabs
+	local places = tabs.PlacesTab
+	local guns = tabs.GunsTab
+	local welcome = tabs.WelcomeTab
+
+
+	places.Visible = false
+	guns.Visible = true
+	welcome.Visible = false
+
+end)
 
 UICorner_4.CornerRadius = UDim.new(0, 3)
 UICorner_4.Parent = guns
@@ -388,6 +423,7 @@ User_Name.TextColor3 = Color3.fromRGB(255, 255, 255)
 User_Name.TextScaled = true
 User_Name.TextSize = 14.000
 User_Name.TextWrapped = true
+User_Name.RichText = true
 User_Name.TextXAlignment = Enum.TextXAlignment.Left
 User_Name.TextYAlignment = Enum.TextYAlignment.Bottom
 
@@ -410,6 +446,8 @@ UserIMG.Size = UDim2.new(0, 100, 0, 100)
 UserIMG.ZIndex = 2
 UserIMG.Image = "rbxassetid://11278330618"
 
+
+
 UICorner_5.CornerRadius = UDim.new(0, 10)
 UICorner_5.Parent = UserIMG
 
@@ -426,6 +464,7 @@ PlacesTab.Parent = Tabs
 PlacesTab.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
 PlacesTab.Position = UDim2.new(0.00864715595, 0, 0.021346014, 0)
 PlacesTab.Size = UDim2.new(0, 586, 0, 253)
+PlacesTab.Visible = false
 PlacesTab.ZIndex = 0
 
 UICorner_7.CornerRadius = UDim.new(0, 15)
@@ -483,6 +522,32 @@ Rev.Position = UDim2.new(0.0533088222, 0, 1.15294123, 0)
 Rev.Size = UDim2.new(0, 103, 0, 103)
 Rev.Image = "rbxassetid://11287484150"
 
+Rev.MouseEnter:Connect(function()
+
+	TextLabel_3.TextTransparency = 0
+
+end)
+
+Rev.MouseLeave:Connect(function()
+
+	TextLabel_3.TextTransparency = 1
+
+end)
+
+Rev.MouseButton1Click:Connect(function()
+
+
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-605.823364, 21.7575264, -138.823486, -0.467215419, 2.26486883e-08, 0.884143531, 7.92540291e-08, 1, 1.62643445e-08, -0.884143531, 7.76708902e-08, -0.467215419)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
+
+
+end)
+
 UICorner_9.CornerRadius = UDim.new(0, 5)
 UICorner_9.Parent = Rev
 
@@ -510,6 +575,28 @@ DB.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 DB.BackgroundTransparency = 1.000
 DB.Size = UDim2.new(0, 103, 0, 103)
 DB.Image = "rbxassetid://11287486962"
+DB.MouseEnter:Connect(function()
+
+	TextLabel_4.TextTransparency = 0
+
+end)
+
+DB.MouseLeave:Connect(function()
+
+	TextLabel_4.TextTransparency = 1
+
+end)
+
+DB.MouseButton1Click:Connect(function()
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-1014.70685, 21.75, -278.840179, -0.235771969, 1.32394405e-07, 0.971808434, 5.21076586e-08, 1, -1.23593168e-07, -0.971808434, 2.14988578e-08, -0.235771969)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
+
+end)
 
 UICorner_10.CornerRadius = UDim.new(0, 5)
 UICorner_10.Parent = DB
@@ -540,6 +627,29 @@ Food.Position = UDim2.new(-0.0294117648, 0, 0, 0)
 Food.Size = UDim2.new(0, 103, 0, 103)
 Food.Image = "rbxassetid://11287491045"
 
+Food.MouseEnter:Connect(function()
+
+	TextLabel_5.TextTransparency = 0
+
+end)
+
+Food.MouseLeave:Connect(function()
+
+	TextLabel_5.TextTransparency = 1
+
+end)
+
+Food.MouseButton1Click:Connect(function()
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-341.818817, 23.6848488, -298.309052, 0.272637665, 0.0211459044, -0.961884379, -0.00797657669, 0.999773741, 0.019717969, 0.962083697, 0.00229668408, 0.272744656)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
+
+end)
+
 UICorner_11.CornerRadius = UDim.new(0, 5)
 UICorner_11.Parent = Food
 
@@ -568,6 +678,29 @@ Bank.BackgroundTransparency = 1.000
 Bank.Size = UDim2.new(0, 103, 0, 103)
 Bank.Image = "http://www.roblox.com/asset/?id=11287496026"
 
+Bank.MouseEnter:Connect(function()
+
+	TextLabel_6.TextTransparency = 0
+
+end)
+
+Bank.MouseLeave:Connect(function()
+
+	TextLabel_6.TextTransparency = 1
+
+end)
+
+Bank.MouseButton1Click:Connect(function()
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-429.896362, 22.9660358, -287.268311, -0.997827113, -5.837963e-08, 0.0658863559, -5.73565586e-08, 1, 1.74193655e-08, -0.0658863559, 1.36025013e-08, -0.997827113)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
+
+end)
+
 UICorner_12.CornerRadius = UDim.new(0, 5)
 UICorner_12.Parent = Bank
 
@@ -595,6 +728,31 @@ Uphill.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Uphill.BackgroundTransparency = 1.000
 Uphill.Size = UDim2.new(0, 103, 0, 103)
 Uphill.Image = "http://www.roblox.com/asset/?id=11287497195"
+
+Uphill.MouseEnter:Connect(function()
+
+	TextLabel_7.TextTransparency = 0
+
+end)
+
+Uphill.MouseLeave:Connect(function()
+
+	TextLabel_7.TextTransparency = 1
+
+end)
+
+Uphill.MouseButton1Click:Connect(function()
+
+
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(454.426605, 47.7550011, -571.7005, -0.277744412, -7.67701295e-07, -0.960655034, -2.41403342e-07, 1, -7.29349097e-07, 0.960655034, 2.93326892e-08, -0.277744412)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
+
+end)
 
 UICorner_13.CornerRadius = UDim.new(0, 5)
 UICorner_13.Parent = Uphill
@@ -639,6 +797,29 @@ Downhill.Position = UDim2.new(0.0533088222, 0, 1.15294123, 0)
 Downhill.Size = UDim2.new(0, 103, 0, 103)
 Downhill.Image = "http://www.roblox.com/asset/?id=11287596942"
 
+Downhill.MouseEnter:Connect(function()
+
+	TextLabel_8.TextTransparency = 0
+
+end)
+
+Downhill.MouseLeave:Connect(function()
+
+	TextLabel_8.TextTransparency = 1
+
+end)
+
+Downhill.MouseButton1Click:Connect(function()
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-550.925537, 8.00737953, -743.751038, -0.0410554484, -1.16903931e-09, -0.999156892, 9.51145829e-09, 1, -1.56085256e-09, 0.999156892, -9.56752011e-09, -0.0410554484)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
+
+end)
+
 UICorner_14.CornerRadius = UDim.new(0, 5)
 UICorner_14.Parent = Downhill
 
@@ -666,6 +847,30 @@ Admin.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Admin.BackgroundTransparency = 1.000
 Admin.Size = UDim2.new(0, 103, 0, 103)
 Admin.Image = "http://www.roblox.com/asset/?id=11287501547"
+Admin.MouseEnter:Connect(function()
+
+	TextLabel_9.TextTransparency = 0
+
+end)
+
+Admin.MouseLeave:Connect(function()
+
+	TextLabel_9.TextTransparency = 1
+
+end)
+
+Admin.MouseButton1Click:Connect(function()
+
+
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-871.035034, -32.6416817, -653.49707, -0.999930024, 1.01258832e-08, -0.0118284598, 1.00539195e-08, 1, 6.14346529e-09, 0.0118284598, 6.02411321e-09, -0.999930024)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
+
+end)
 
 UICorner_15.CornerRadius = UDim.new(0, 5)
 UICorner_15.Parent = Admin
@@ -696,6 +901,31 @@ ArmorD.Position = UDim2.new(-0.0294117648, 0, 0, 0)
 ArmorD.Size = UDim2.new(0, 103, 0, 103)
 ArmorD.Image = "http://www.roblox.com/asset/?id=11287499149"
 
+ArmorD.MouseEnter:Connect(function()
+
+	TextLabel_10.TextTransparency = 0
+
+end)
+
+ArmorD.MouseLeave:Connect(function()
+
+	TextLabel_10.TextTransparency = 1
+
+end)
+
+ArmorD.MouseButton1Click:Connect(function()
+
+
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-577.019714, 10.6067495, -792.766602, 0.037051864, -1.45036223e-08, 0.999313354, -2.06220552e-08, 1, 1.52781983e-08, -0.999313354, -2.11739817e-08, 0.037051864)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
+
+end)
+
 UICorner_16.CornerRadius = UDim.new(0, 5)
 UICorner_16.Parent = ArmorD
 
@@ -724,6 +954,33 @@ ArmorU.BackgroundTransparency = 1.000
 ArmorU.Size = UDim2.new(0, 103, 0, 103)
 ArmorU.Image = "http://www.roblox.com/asset/?id=11287500276"
 
+local text =TextLabel_11
+
+ArmorU.MouseEnter:Connect(function()
+
+	text.TextTransparency = 0
+
+end)
+
+ArmorU.MouseLeave:Connect(function()
+
+	text.TextTransparency = 1
+
+end)
+
+ArmorU.MouseButton1Click:Connect(function()
+
+
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(558.437683, 50.5644913, -625.397217, 0.0162371919, -8.74482975e-09, 0.999868155, -3.92617814e-08, 1, 9.3835677e-09, -0.999868155, -3.94089703e-08, 0.0162371919)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
+
+end)
+
 UICorner_17.CornerRadius = UDim.new(0, 5)
 UICorner_17.Parent = ArmorU
 
@@ -751,6 +1008,30 @@ HighArmor.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 HighArmor.BackgroundTransparency = 1.000
 HighArmor.Size = UDim2.new(0, 103, 0, 103)
 HighArmor.Image = "http://www.roblox.com/asset/?id=11287500777"
+
+HighArmor.MouseEnter:Connect(function()
+
+	TextLabel_12.TextTransparency = 0
+
+end)
+
+HighArmor.MouseLeave:Connect(function()
+
+	TextLabel_12.TextTransparency = 1
+
+end)
+
+HighArmor.MouseButton1Click:Connect(function()
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-934.667786, -28.642477, 550.304626, -0.998897433, 1.77966051e-08, 0.046946004, 2.30510615e-08, 1, 1.11384168e-07, -0.046946004, 1.12343514e-07, -0.998897433)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
+
+end)
+
 
 UICorner_18.CornerRadius = UDim.new(0, 5)
 UICorner_18.Parent = HighArmor
@@ -845,6 +1126,20 @@ TextButton.Font = Enum.Font.SourceSans
 TextButton.Text = ""
 TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.TextSize = 14.000
+TextButton.MouseButton1Click:Connect(function()
+
+	local tabs = Tabs
+	local places = tabs.PlacesTab
+	local guns = tabs.GunsTab
+	local welcome = tabs.WelcomeTab
+
+
+	places.Visible = false
+	guns.Visible = false
+	welcome.Visible = true
+
+end)
+
 
 DHCPlaces.Name = "DHCPlaces"
 DHCPlaces.Parent = ScrollingFrame_2
@@ -869,6 +1164,29 @@ AdminPrison.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 AdminPrison.BackgroundTransparency = 1.000
 AdminPrison.Size = UDim2.new(0, 103, 0, 103)
 AdminPrison.Image = "http://www.roblox.com/asset/?id=11287583913"
+
+AdminPrison.MouseEnter:Connect(function()
+
+	TextLabel_13.TextTransparency = 0
+
+end)
+
+AdminPrison.MouseLeave:Connect(function()
+
+	TextLabel_13.TextTransparency = 1
+
+end)
+
+AdminPrison.MouseButton1Click:Connect(function()
+	
+		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+		local location = CFrame.new(-798.395996, -39.6416817, -857.692688, -0.999758482, 1.88793052e-08, 0.0219778698, 2.05554329e-08, 1, 7.60384467e-08, -0.0219778698, 7.64718493e-08, -0.999758482)
+		local humanoid = game.Players.LocalPlayer.Character.Humanoid
+		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+		wait(0.1)
+		pl.CFrame = location
+
+end)
 
 UICorner_19.CornerRadius = UDim.new(0, 5)
 UICorner_19.Parent = AdminPrison
@@ -898,6 +1216,29 @@ SecretPlace.BackgroundTransparency = 1.000
 SecretPlace.Size = UDim2.new(0, 103, 0, 103)
 SecretPlace.Image = "rbxassetid://11288229350"
 
+SecretPlace.MouseEnter:Connect(function()
+
+	TextLabel_14.TextTransparency = 0
+
+end)
+
+SecretPlace.MouseLeave:Connect(function()
+
+	TextLabel_14.TextTransparency = 1
+
+end)
+
+SecretPlace.MouseButton1Click:Connect(function()
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(123.415276, 38.2575188, 200027.297, 0.0107507845, 6.35756123e-08, -0.999942183, 3.47019236e-09, 1, 6.36165964e-08, 0.999942183, -4.15392032e-09, 0.0107507845)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
+
+end)
+
 UICorner_20.CornerRadius = UDim.new(0, 5)
 UICorner_20.Parent = SecretPlace
 
@@ -926,6 +1267,29 @@ AdminV2.BackgroundTransparency = 1.000
 AdminV2.Size = UDim2.new(0, 103, 0, 103)
 AdminV2.Image = "http://www.roblox.com/asset/?id=11287501547"
 
+AdminV2.MouseEnter:Connect(function()
+
+	TextLabel_15.TextTransparency = 0
+
+end)
+
+AdminV2.MouseLeave:Connect(function()
+
+	TextLabel_15.TextTransparency = 1
+
+end)
+
+AdminV2.MouseButton1Click:Connect(function()
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-871.035034, -32.6416817, -653.49707, -0.999930024, 1.01258832e-08, -0.0118284598, 1.00539195e-08, 1, 6.14346529e-09, 0.0118284598, 6.02411321e-09, -0.999930024)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
+
+end)
+
 UICorner_21.CornerRadius = UDim.new(0, 5)
 UICorner_21.Parent = AdminV2
 
@@ -953,6 +1317,30 @@ BankRoad.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 BankRoad.BackgroundTransparency = 1.000
 BankRoad.Size = UDim2.new(0, 103, 0, 103)
 BankRoad.Image = "http://www.roblox.com/asset/?id=11287585300"
+
+BankRoad.MouseEnter:Connect(function()
+
+	TextLabel_16.TextTransparency = 0
+
+end)
+
+BankRoad.MouseLeave:Connect(function()
+
+	TextLabel_16.TextTransparency = 1
+
+end)
+
+BankRoad.MouseButton1Click:Connect(function()
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-372.505035, 21.2575226, -340.594604, 0.999405861, -2.67699534e-08, -0.0344657786, 2.98557339e-08, 1, 8.90170213e-08, 0.0344657786, -8.99931365e-08, 0.999405861)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
+
+
+end)
 
 UICorner_22.CornerRadius = UDim.new(0, 5)
 UICorner_22.Parent = BankRoad
@@ -1066,6 +1454,50 @@ Rev_2.Position = UDim2.new(0.0533088222, 0, 1.15294123, 0)
 Rev_2.Size = UDim2.new(0, 103, 0, 103)
 Rev_2.Image = "http://www.roblox.com/asset/?id=8529614201"
 
+Rev_2.MouseEnter:Connect(function()
+
+	TextLabel_17.TextTransparency = 0
+
+end)
+
+Rev_2.MouseLeave:Connect(function()
+
+	TextLabel_17.TextTransparency = 1
+
+end)
+
+
+Rev_2.MouseButton1Click:Connect(function()
+	
+	if togglevalue.Value == true then
+		
+		local lS = game:GetService("Players").LocalPlayer;
+		local AS = workspace.Ignored.Shop["12 [Revolver Ammo] - $75"];
+		local SS = lS.Character.HumanoidRootPart.Position;
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = AS.Head.CFrame + Vector3.new(0, 3, 0);
+		wait(0.5);
+		fireclickdetector(workspace.Ignored.Shop["12 [Revolver Ammo] - $75"].ClickDetector);
+		fireclickdetector(workspace.Ignored.Shop["12 [Revolver Ammo] - $75"].ClickDetector);
+		lS.Character.HumanoidRootPart.CFrame = CFrame.new(SS);
+		lS.Character.HumanoidRootPart.CFrame = CFrame.new(SS);
+		
+	elseif togglevalue.Value == false then
+		
+		local lS = game:GetService("Players").LocalPlayer;
+		local AS = workspace.Ignored.Shop["[Revolver] - $1300"];
+		local SS = lS.Character.HumanoidRootPart.Position;
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = AS.Head.CFrame + Vector3.new(0, 3, 0);
+		wait(0.5);
+		fireclickdetector(workspace.Ignored.Shop["[Revolver] - $1300"].ClickDetector);
+		fireclickdetector(workspace.Ignored.Shop["[Revolver] - $1300"].ClickDetector);
+		lS.Character.HumanoidRootPart.CFrame = CFrame.new(SS);
+		lS.Character.HumanoidRootPart.CFrame = CFrame.new(SS);
+
+	
+	end
+
+end)
+
 UICorner_25.CornerRadius = UDim.new(0, 5)
 UICorner_25.Parent = Rev_2
 
@@ -1093,6 +1525,49 @@ DB_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 DB_2.BackgroundTransparency = 1.000
 DB_2.Size = UDim2.new(0, 103, 0, 103)
 DB_2.Image = "http://www.roblox.com/asset/?id=8529606914"
+
+DB_2.MouseEnter:Connect(function()
+
+		TextLabel_18.TextTransparency = 0
+
+	end)
+
+	DB_2.MouseLeave:Connect(function()
+
+		TextLabel_18.TextTransparency = 1
+
+end)
+
+DB_2.MouseButton1Click:Connect(function()
+
+	if togglevalue.Value == true then
+
+		local SJ = game:GetService("Players").LocalPlayer;
+		local rJ = workspace.Ignored.Shop["18 [Double-Barrel SG Ammo] - $60"];
+		local HJ = SJ.Character.HumanoidRootPart.Position;
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = rJ.Head.CFrame + Vector3.new(0, 3, 0);
+		wait(0.5);
+		fireclickdetector(workspace.Ignored.Shop["18 [Double-Barrel SG Ammo] - $60"].ClickDetector);
+		fireclickdetector(workspace.Ignored.Shop["18 [Double-Barrel SG Ammo] - $60"].ClickDetector);
+		SJ.Character.HumanoidRootPart.CFrame = CFrame.new(HJ);
+		SJ.Character.HumanoidRootPart.CFrame = CFrame.new(HJ);
+
+	elseif togglevalue.Value == false then
+
+		local SJ = game:GetService("Players").LocalPlayer;
+		local rJ = workspace.Ignored.Shop["[Double-Barrel SG] - $1400"];
+		local HJ = SJ.Character.HumanoidRootPart.Position;
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = rJ.Head.CFrame + Vector3.new(0, 3, 0);
+		wait(0.5);
+		fireclickdetector(workspace.Ignored.Shop["[Double-Barrel SG] - $1400"].ClickDetector);
+		fireclickdetector(workspace.Ignored.Shop["[Double-Barrel SG] - $1400"].ClickDetector);
+		SJ.Character.HumanoidRootPart.CFrame = CFrame.new(HJ);
+		SJ.Character.HumanoidRootPart.CFrame = CFrame.new(HJ);
+
+
+	end
+
+end)
 
 UICorner_26.CornerRadius = UDim.new(0, 5)
 UICorner_26.Parent = DB_2
@@ -1123,6 +1598,49 @@ SG.Position = UDim2.new(-0.0294117648, 0, 0, 0)
 SG.Size = UDim2.new(0, 103, 0, 103)
 SG.Image = "http://www.roblox.com/asset/?id=8529615895"
 
+SG.MouseEnter:Connect(function()
+
+	TextLabel_19.TextTransparency = 0
+
+end)
+
+SG.MouseLeave:Connect(function()
+
+	TextLabel_19.TextTransparency = 1
+
+end)
+
+SG.MouseButton1Click:Connect(function()
+
+	if togglevalue.Value == true then
+
+		local SJ = game:GetService("Players").LocalPlayer;
+		local rJ = workspace.Ignored.Shop["18 [SMG Ammo] - $60"];
+		local HJ = SJ.Character.HumanoidRootPart.Position;
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = rJ.Head.CFrame + Vector3.new(0, 3, 0);
+		wait(0.5);
+		fireclickdetector(workspace.Ignored.Shop["18 [SMG Ammo] - $60"].ClickDetector);
+		fireclickdetector(workspace.Ignored.Shop["18 [SMG Ammo] - $60"].ClickDetector);
+		SJ.Character.HumanoidRootPart.CFrame = CFrame.new(HJ);
+		SJ.Character.HumanoidRootPart.CFrame = CFrame.new(HJ);
+
+	elseif togglevalue.Value == false then
+
+		local SJ = game:GetService("Players").LocalPlayer;
+		local rJ = workspace.Ignored.Shop["[SMG] - $1400"];
+		local HJ = SJ.Character.HumanoidRootPart.Position;
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = rJ.Head.CFrame + Vector3.new(0, 3, 0);
+		wait(0.5);
+		fireclickdetector(workspace.Ignored.Shop["[SMG] - $1400"].ClickDetector);
+		fireclickdetector(workspace.Ignored.Shop["[SMG] - $1400"].ClickDetector);
+		SJ.Character.HumanoidRootPart.CFrame = CFrame.new(HJ);
+		SJ.Character.HumanoidRootPart.CFrame = CFrame.new(HJ);
+
+
+	end
+
+end)
+
 UICorner_27.CornerRadius = UDim.new(0, 5)
 UICorner_27.Parent = SG
 
@@ -1151,6 +1669,32 @@ TacticalSG.BackgroundTransparency = 1.000
 TacticalSG.Size = UDim2.new(0, 103, 0, 103)
 TacticalSG.Image = "http://www.roblox.com/asset/?id=8581956297"
 
+TacticalSG.MouseEnter:Connect(function()
+
+	TextLabel_20.TextTransparency = 0
+
+end)
+
+TacticalSG.MouseLeave:Connect(function()
+
+	TextLabel_20.TextTransparency = 1
+
+end)
+
+TacticalSG.MouseButton1Click:Connect(function()
+
+	if togglevalue.Value == true then
+
+		warn("buying ammo")
+
+	elseif togglevalue.Value == false then
+
+		warn("buying gun")
+
+	end
+
+end)
+
 UICorner_28.CornerRadius = UDim.new(0, 5)
 UICorner_28.Parent = TacticalSG
 
@@ -1178,6 +1722,32 @@ SMG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 SMG.BackgroundTransparency = 1.000
 SMG.Size = UDim2.new(0, 103, 0, 103)
 SMG.Image = "http://www.roblox.com/asset/?id=8529619225"
+
+SMG.MouseEnter:Connect(function()
+
+	TextLabel_21.TextTransparency = 0
+
+end)
+
+SMG.MouseLeave:Connect(function()
+
+	TextLabel_21.TextTransparency = 1
+
+end)
+
+SMG.MouseButton1Click:Connect(function()
+
+	if togglevalue.Value == true then
+
+		warn("buying ammo")
+
+	elseif togglevalue.Value == false then
+
+		warn("buying gun")
+
+	end
+
+end)
 
 UICorner_29.CornerRadius = UDim.new(0, 5)
 UICorner_29.Parent = SMG
@@ -1221,6 +1791,32 @@ P90.Position = UDim2.new(0.0533088222, 0, 1.15294123, 0)
 P90.Size = UDim2.new(0, 103, 0, 103)
 P90.Image = "http://www.roblox.com/asset/?id=8529612927"
 
+P90.MouseEnter:Connect(function()
+
+	TextLabel_22.TextTransparency = 0
+
+end)
+
+P90.MouseLeave:Connect(function()
+
+	TextLabel_22.TextTransparency = 1
+
+end)
+
+P90.MouseButton1Click:Connect(function()
+
+	if togglevalue.Value == true then
+
+		warn("buying ammo")
+
+	elseif togglevalue.Value == false then
+
+		warn("buying gun")
+
+	end
+
+end)
+
 UICorner_30.CornerRadius = UDim.new(0, 5)
 UICorner_30.Parent = P90
 
@@ -1249,6 +1845,32 @@ RPG.BackgroundTransparency = 1.000
 RPG.Size = UDim2.new(0, 103, 0, 103)
 RPG.Image = "http://www.roblox.com/asset/?id=8529615148"
 
+RPG.MouseEnter:Connect(function()
+
+	TextLabel_23.TextTransparency = 0
+
+end)
+
+RPG.MouseLeave:Connect(function()
+
+	TextLabel_23.TextTransparency = 1
+
+end)
+
+RPG.MouseButton1Click:Connect(function()
+
+	if togglevalue.Value == true then
+
+		warn("buying ammo")
+
+	elseif togglevalue.Value == false then
+
+		warn("buying gun")
+
+	end
+
+end)
+
 UICorner_31.CornerRadius = UDim.new(0, 5)
 UICorner_31.Parent = RPG
 
@@ -1270,7 +1892,7 @@ UIGradient_39.Offset = Vector2.new(0, 0.349999994)
 UIGradient_39.Rotation = 90
 UIGradient_39.Parent = TextLabel_23
 
-GL.Name = "GL"
+GL.Name = "GL" -- grenade launcher
 GL.Parent = Page2_2
 GL.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 GL.BackgroundTransparency = 1.000
@@ -1278,6 +1900,31 @@ GL.Position = UDim2.new(-0.0294117648, 0, 0, 0)
 GL.Size = UDim2.new(0, 103, 0, 103)
 GL.Image = "http://www.roblox.com/asset/?id=8529611081"
 
+GL.MouseEnter:Connect(function()
+
+	TextLabel_24.TextTransparency = 0
+
+end)
+
+GL.MouseLeave:Connect(function()
+
+	TextLabel_24.TextTransparency = 1
+
+end)
+
+GL.MouseButton1Click:Connect(function()
+
+	if togglevalue.Value == true then
+
+		warn("buying ammo")
+
+	elseif togglevalue.Value == false then
+
+		warn("buying gun")
+
+	end
+
+end)
 UICorner_32.CornerRadius = UDim.new(0, 5)
 UICorner_32.Parent = GL
 
@@ -1306,6 +1953,32 @@ Silencer.BackgroundTransparency = 1.000
 Silencer.Size = UDim2.new(0, 103, 0, 103)
 Silencer.Image = "http://www.roblox.com/asset/?id=8529618484"
 
+Silencer.MouseEnter:Connect(function()
+
+	TextLabel_25.TextTransparency = 0
+
+end)
+
+Silencer.MouseLeave:Connect(function()
+
+	TextLabel_25.TextTransparency = 1
+
+end)
+
+Silencer.MouseButton1Click:Connect(function()
+
+	if togglevalue.Value == true then
+
+		warn("buying ammo")
+
+	elseif togglevalue.Value == false then
+
+		warn("buying gun")
+
+	end
+
+end)
+
 UICorner_33.CornerRadius = UDim.new(0, 5)
 UICorner_33.Parent = Silencer
 
@@ -1333,6 +2006,32 @@ LMG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LMG.BackgroundTransparency = 1.000
 LMG.Size = UDim2.new(0, 103, 0, 103)
 LMG.Image = "http://www.roblox.com/asset/?id=8529612086"
+
+LMG.MouseEnter:Connect(function()
+
+	TextLabel_26.TextTransparency = 0
+
+end)
+
+LMG.MouseLeave:Connect(function()
+
+	TextLabel_26.TextTransparency = 1
+
+end)
+
+LMG.MouseButton1Click:Connect(function()
+
+	if togglevalue.Value == true then
+
+		warn("buying ammo")
+
+	elseif togglevalue.Value == false then
+
+		warn("buying gun")
+
+	end
+
+end)
 
 UICorner_34.CornerRadius = UDim.new(0, 5)
 UICorner_34.Parent = LMG
@@ -1427,6 +2126,103 @@ TextButton_2.Font = Enum.Font.SourceSans
 TextButton_2.Text = ""
 TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton_2.TextSize = 14.000
+TextButton_2.MouseButton1Click:Connect(function()
+
+
+	local tabs = Tabs
+	local places = tabs.PlacesTab
+	local guns = tabs.GunsTab
+	local welcome = tabs.WelcomeTab
+
+	places.Visible = false
+	guns.Visible = false
+	welcome.Visible = true
+
+end)
+
+ToggleAmmo.Name = "ToggleAmmo"
+ToggleAmmo.Parent = ScrollingFrame_3
+ToggleAmmo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ToggleAmmo.BackgroundTransparency = 1.000
+ToggleAmmo.Position = UDim2.new(0, 55, 0, 297)
+ToggleAmmo.Size = UDim2.new(0, 197, 0, 33)
+ToggleAmmo.ZIndex = 124124
+ToggleAmmo.Font = Enum.Font.Gotham
+ToggleAmmo.RichText = true
+ToggleAmmo.Text = "<i>Toggle Ammo Mode</i>"
+ToggleAmmo.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleAmmo.TextScaled = true
+ToggleAmmo.TextSize = 23.000
+ToggleAmmo.TextWrapped = true
+ToggleAmmo.TextXAlignment = Enum.TextXAlignment.Left
+ToggleAmmo.TextYAlignment = Enum.TextYAlignment.Bottom
+
+UIGradient_47.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 255, 179)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 170, 0))}
+UIGradient_47.Offset = Vector2.new(0, 0.349999994)
+UIGradient_47.Rotation = 90
+UIGradient_47.Parent = ToggleAmmo
+
+ToggleButton.Name = "ToggleButton"
+ToggleButton.Parent = ToggleAmmo
+ToggleButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ToggleButton.BorderSizePixel = 0
+ToggleButton.Position = UDim2.new(0, -38, 0, 1)
+ToggleButton.Size = UDim2.new(0, 31, 0, 32)
+ToggleButton.ZIndex = 124124
+
+togglepress.Name = "togglepress"
+togglepress.Parent = ToggleButton
+togglepress.BackgroundColor3 = Color3.fromRGB(111, 111, 111)
+togglepress.BackgroundTransparency = 1.000
+togglepress.BorderSizePixel = 0
+togglepress.Size = UDim2.new(0, 31, 0, 32)
+togglepress.ZIndex = 1222222222
+togglepress.Font = Enum.Font.Gotham
+togglepress.RichText = true
+togglepress.Text = "<b>X</b>"
+togglepress.TextColor3 = Color3.fromRGB(255, 255, 255)
+togglepress.TextSize = 25.000
+togglepress.TextStrokeTransparency = 0.000
+togglepress.TextTransparency = 1.000
+togglepress.MouseButton1Click:Connect(function()
+	
+	if togglevalue.Value == true then
+		
+		togglevalue.Value = false
+		togglepress.TextTransparency = 1
+		
+	else
+		
+		togglevalue.Value = true
+		togglepress.TextTransparency = 0
+		
+	end
+	
+end)
+
+togglevalue.Name = "Toggled"
+togglevalue.Parent = togglepress
+togglevalue.Value = false
+
+UICorner_35.CornerRadius = UDim.new(0, 5)
+UICorner_35.Parent = ToggleButton
+
+UIGradient_48.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 255, 179)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 170, 0))}
+UIGradient_48.Offset = Vector2.new(0, 0.349999994)
+UIGradient_48.Rotation = 90
+UIGradient_48.Parent = ToggleButton
+
+line.Name = "line"
+line.Parent = ToggleAmmo
+line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+line.BorderSizePixel = 0
+line.Position = UDim2.new(0, 0, 0, 33)
+line.Size = UDim2.new(0, 186, 0, 1)
+
+UIGradient_49.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 255, 179)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 170, 0))}
+UIGradient_49.Offset = Vector2.new(0, 0.349999994)
+UIGradient_49.Rotation = 90
+UIGradient_49.Parent = line
 
 shadow.Name = "shadow"
 shadow.Parent = Drag
@@ -1450,706 +2246,38 @@ GradColor.Parent = UmbraShadow
 
 -- Scripts:
 
-local function HJXZMRC_fake_script() -- places.LocalScript 
-	local script = Instance.new('LocalScript', places)
+-- this makes show users avatar image, and username on the welcome section
 
-	local tabs = script.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Tabs
-	local places = tabs.PlacesTab
-	local guns = tabs.GunsTab
-	local welcome = tabs.WelcomeTab
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		places.Visible = true
-		guns.Visible = false
-		welcome.Visible = false
-		
-	end)
-end
-coroutine.wrap(HJXZMRC_fake_script)()
-local function LPHK_fake_script() -- guns.LocalScript 
-	local script = Instance.new('LocalScript', guns)
+local player = game.Players.LocalPlayer
+local thumbType = Enum.ThumbnailType.AvatarBust
 
-	local tabs = script.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Tabs
-	local places = tabs.PlacesTab
-	local guns = tabs.GunsTab
-	local welcome = tabs.WelcomeTab
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		places.Visible = false
-		guns.Visible = true
-		welcome.Visible = false
-		
-	end)
-end
-coroutine.wrap(LPHK_fake_script)()
-local function IVGW_fake_script() -- UserIMG.LocalScript 
-	local script = Instance.new('LocalScript', UserIMG)
+local thumbSize = Enum.ThumbnailSize.Size420x420
 
-	local frame = script.Parent.Parent
-	local decoforlder = script.Parent.Parent.Parent
-	
-	local image = frame.UserIMG
-	local text  = decoforlder.Welcome_Text.User_Name
-	
-	local player = game.Players.LocalPlayer
-	
-	
-	
-	local userId = player.UserId
-	
-	local thumbType = Enum.ThumbnailType.AvatarBust
-	
-	local thumbSize = Enum.ThumbnailSize.Size420x420
-	
-	local content, isReady = game.Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
-	
-	
-	
-	
-	
-	image.Image = content
-	text.Text = player.Name.."!"
-end
-coroutine.wrap(IVGW_fake_script)()
-local function OCTEV_fake_script() -- Rev.LocalScript 
-	local script = Instance.new('LocalScript', Rev)
+local content, isReady = game.Players:GetUserThumbnailAsync(game.Players.LocalPlayer.UserId, thumbType, thumbSize)
 
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(-605.823364, 21.7575264, -138.823486, -0.467215419, 2.26486883e-08, 0.884143531, 7.92540291e-08, 1, 1.62643445e-08, -0.884143531, 7.76708902e-08, -0.467215419)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(OCTEV_fake_script)()
-local function VCGDY_fake_script() -- DB.LocalScript 
-	local script = Instance.new('LocalScript', DB)
 
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(-1014.70685, 21.75, -278.840179, -0.235771969, 1.32394405e-07, 0.971808434, 5.21076586e-08, 1, -1.23593168e-07, -0.971808434, 2.14988578e-08, -0.235771969)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(VCGDY_fake_script)()
-local function CQGO_fake_script() -- Food.LocalScript 
-	local script = Instance.new('LocalScript', Food)
+UserIMG.Image = content
+User_Name.Text = "<b>"..(player.Name).."!</b>"
 
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(-341.818817, 23.6848488, -298.309052, 0.272637665, 0.0211459044, -0.961884379, -0.00797657669, 0.999773741, 0.019717969, 0.962083697, 0.00229668408, 0.272744656)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(CQGO_fake_script)()
-local function TOXBYC_fake_script() -- Bank.LocalScript 
-	local script = Instance.new('LocalScript', Bank)
 
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(-429.896362, 22.9660358, -287.268311, -0.997827113, -5.837963e-08, 0.0658863559, -5.73565586e-08, 1, 1.74193655e-08, -0.0658863559, 1.36025013e-08, -0.997827113)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(TOXBYC_fake_script)()
-local function ISJJBVG_fake_script() -- Uphill.LocalScript 
-	local script = Instance.new('LocalScript', Uphill)
 
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(454.426605, 47.7550011, -571.7005, -0.277744412, -7.67701295e-07, -0.960655034, -2.41403342e-07, 1, -7.29349097e-07, 0.960655034, 2.93326892e-08, -0.277744412)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(ISJJBVG_fake_script)()
-local function LZNAV_fake_script() -- Downhill.LocalScript 
-	local script = Instance.new('LocalScript', Downhill)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(-550.925537, 8.00737953, -743.751038, -0.0410554484, -1.16903931e-09, -0.999156892, 9.51145829e-09, 1, -1.56085256e-09, 0.999156892, -9.56752011e-09, -0.0410554484)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(LZNAV_fake_script)()
-local function XEVH_fake_script() -- Admin.LocalScript 
-	local script = Instance.new('LocalScript', Admin)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(-871.035034, -32.6416817, -653.49707, -0.999930024, 1.01258832e-08, -0.0118284598, 1.00539195e-08, 1, 6.14346529e-09, 0.0118284598, 6.02411321e-09, -0.999930024)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(XEVH_fake_script)()
-local function DLSKU_fake_script() -- ArmorD.LocalScript 
-	local script = Instance.new('LocalScript', ArmorD)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(-577.019714, 10.6067495, -792.766602, 0.037051864, -1.45036223e-08, 0.999313354, -2.06220552e-08, 1, 1.52781983e-08, -0.999313354, -2.11739817e-08, 0.037051864)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(DLSKU_fake_script)()
-local function PBJP_fake_script() -- ArmorU.LocalScript 
-	local script = Instance.new('LocalScript', ArmorU)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(558.437683, 50.5644913, -625.397217, 0.0162371919, -8.74482975e-09, 0.999868155, -3.92617814e-08, 1, 9.3835677e-09, -0.999868155, -3.94089703e-08, 0.0162371919)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(PBJP_fake_script)()
-local function PZCA_fake_script() -- HighArmor.LocalScript 
-	local script = Instance.new('LocalScript', HighArmor)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(-934.667786, -28.642477, 550.304626, -0.998897433, 1.77966051e-08, 0.046946004, 2.30510615e-08, 1, 1.11384168e-07, -0.046946004, 1.12343514e-07, -0.998897433)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(PZCA_fake_script)()
-local function XUGBZT_fake_script() -- TextButton.LocalScript 
-	local script = Instance.new('LocalScript', TextButton)
-
-	local tabs = script.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Tabs
-	local places = tabs.PlacesTab
-	local guns = tabs.GunsTab
-	local welcome = tabs.WelcomeTab
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		places.Visible = false
-		guns.Visible = false
-		welcome.Visible = true
-		
-	end)
-end
-coroutine.wrap(XUGBZT_fake_script)()
-local function DCOZ_fake_script() -- AdminPrison.LocalScript 
-	local script = Instance.new('LocalScript', AdminPrison)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(-798.395996, -39.6416817, -857.692688, -0.999758482, 1.88793052e-08, 0.0219778698, 2.05554329e-08, 1, 7.60384467e-08, -0.0219778698, 7.64718493e-08, -0.999758482)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(DCOZ_fake_script)()
-local function GHNHFLL_fake_script() -- SecretPlace.LocalScript 
-	local script = Instance.new('LocalScript', SecretPlace)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(123.415276, 38.2575188, 200027.297, 0.0107507845, 6.35756123e-08, -0.999942183, 3.47019236e-09, 1, 6.36165964e-08, 0.999942183, -4.15392032e-09, 0.0107507845)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(GHNHFLL_fake_script)()
-local function VAOBRH_fake_script() -- AdminV2.LocalScript 
-	local script = Instance.new('LocalScript', AdminV2)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(-871.035034, -32.6416817, -653.49707, -0.999930024, 1.01258832e-08, -0.0118284598, 1.00539195e-08, 1, 6.14346529e-09, 0.0118284598, 6.02411321e-09, -0.999930024)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(VAOBRH_fake_script)()
-local function TEFTTN_fake_script() -- BankRoad.LocalScript 
-	local script = Instance.new('LocalScript', BankRoad)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(-372.505035, 21.2575226, -340.594604, 0.999405861, -2.67699534e-08, -0.0344657786, 2.98557339e-08, 1, 8.90170213e-08, 0.0344657786, -8.99931365e-08, 0.999405861)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
-		
-	end)
-end
-coroutine.wrap(TEFTTN_fake_script)()
-local function KRGQ_fake_script() -- Rev_2.LocalScript 
-	local script = Instance.new('LocalScript', Rev_2)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-end
-coroutine.wrap(KRGQ_fake_script)()
-local function FWGTUO_fake_script() -- DB_2.LocalScript 
-	local script = Instance.new('LocalScript', DB_2)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-end
-coroutine.wrap(FWGTUO_fake_script)()
-local function BIGVCEV_fake_script() -- SG.LocalScript 
-	local script = Instance.new('LocalScript', SG)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-end
-coroutine.wrap(BIGVCEV_fake_script)()
-local function LKEH_fake_script() -- TacticalSG.LocalScript 
-	local script = Instance.new('LocalScript', TacticalSG)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-end
-coroutine.wrap(LKEH_fake_script)()
-local function KIFTFC_fake_script() -- SMG.LocalScript 
-	local script = Instance.new('LocalScript', SMG)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-end
-coroutine.wrap(KIFTFC_fake_script)()
-local function CVBOTDW_fake_script() -- P90.LocalScript 
-	local script = Instance.new('LocalScript', P90)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-end
-coroutine.wrap(CVBOTDW_fake_script)()
-local function SMYWR_fake_script() -- RPG.LocalScript 
-	local script = Instance.new('LocalScript', RPG)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-end
-coroutine.wrap(SMYWR_fake_script)()
-local function MJGQDDA_fake_script() -- GL.LocalScript 
-	local script = Instance.new('LocalScript', GL)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-end
-coroutine.wrap(MJGQDDA_fake_script)()
-local function AIARQ_fake_script() -- Silencer.LocalScript 
-	local script = Instance.new('LocalScript', Silencer)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-end
-coroutine.wrap(AIARQ_fake_script)()
-local function QBBJ_fake_script() -- LMG.LocalScript 
-	local script = Instance.new('LocalScript', LMG)
-
-	local text = script.Parent.TextLabel
-	
-	script.Parent.MouseEnter:Connect(function()
-	
-		text.TextTransparency = 0
-		
-	end)
-	
-	script.Parent.MouseLeave:Connect(function()
-		
-		text.TextTransparency = 1
-	
-	end)
-end
-coroutine.wrap(QBBJ_fake_script)()
-local function RCAQT_fake_script() -- TextButton_2.LocalScript 
-	local script = Instance.new('LocalScript', TextButton_2)
-
-	local tabs = script.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Tabs
-	local places = tabs.PlacesTab
-	local guns = tabs.GunsTab
-	local welcome = tabs.WelcomeTab
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		
-		places.Visible = false
-		guns.Visible = false
-		welcome.Visible = true
-		
-	end)
-end
-coroutine.wrap(RCAQT_fake_script)()
-local function SULEPRL_fake_script() -- Drag.Smooth GUI Dragging 
+local function MARDDL_fake_script() -- draggable script
 	local script = Instance.new('LocalScript', Drag)
 
 	local UserInputService = game:GetService("UserInputService")
 	local runService = (game:GetService("RunService"));
-	
+
 	local gui = script.Parent
-	
+
 	local dragging
 	local dragInput
 	local dragStart
 	local startPos
-	
+
 	function Lerp(a, b, m)
 		return a + (b - a) * m
 	end;
-	
+
 	local lastMousePos
 	local lastGoalPos
 	local DRAG_SPEED = (8); -- // The speed of the UI darg.
@@ -2159,21 +2287,21 @@ local function SULEPRL_fake_script() -- Drag.Smooth GUI Dragging
 			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
 			return 
 		end;
-	
+
 		local delta = (lastMousePos - UserInputService:GetMouseLocation())
 		local xGoal = (startPos.X.Offset - delta.X);
 		local yGoal = (startPos.Y.Offset - delta.Y);
 		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
 		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
 	end;
-	
+
 	gui.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 			dragging = true
 			dragStart = input.Position
 			startPos = gui.Position
 			lastMousePos = UserInputService:GetMouseLocation()
-	
+
 			input.Changed:Connect(function()
 				if input.UserInputState == Enum.UserInputState.End then
 					dragging = false
@@ -2181,13 +2309,13 @@ local function SULEPRL_fake_script() -- Drag.Smooth GUI Dragging
 			end)
 		end
 	end)
-	
+
 	gui.InputChanged:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
 			dragInput = input
 		end
 	end)
-	
+
 	runService.Heartbeat:Connect(Update)
 end
-coroutine.wrap(SULEPRL_fake_script)()
+coroutine.wrap(MARDDL_fake_script)()
