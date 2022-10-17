@@ -726,7 +726,8 @@ ImageButton.MouseButton1Click:Connect(function()
 
 
 		if redtoggle.Value == true then
-
+			
+			ImageButton.ImageColor3 = Color3.new(1, 0, 0)
 			UIGradient_2.Color = ColorSequence.new{
 
 				ColorSequenceKeypoint.new(0, red),
@@ -1023,7 +1024,8 @@ ImageButton.MouseButton1Click:Connect(function()
 			}
 
 		elseif bluetoggle.Value == true then	
-
+			
+			ImageButton.ImageColor3 = Color3.new(0, 0, 1)
 			UIGradient_2.Color = ColorSequence.new{
 
 				ColorSequenceKeypoint.new(0, blue),
@@ -1320,7 +1322,7 @@ ImageButton.MouseButton1Click:Connect(function()
 			}
 
 		elseif greentoggle.Value == true then	
-
+			ImageButton.ImageColor3 = Color3.new(0, 1, 0)
 
 			UIGradient_2.Color = ColorSequence.new{
 
@@ -1618,7 +1620,7 @@ ImageButton.MouseButton1Click:Connect(function()
 			}
 
 		elseif purpletoggle.Value == true then	
-
+			ImageButton.ImageColor3 = Color3.new(0.635294, 0, 1)
 			UIGradient_2.Color = ColorSequence.new{
 
 				ColorSequenceKeypoint.new(0, purple),
