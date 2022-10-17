@@ -179,8 +179,6 @@ local Frame_7 = Instance.new("Frame")
 local UIGradient_45 = Instance.new("UIGradient")
 local UIGradient_46 = Instance.new("UIGradient")
 local TextButton_2 = Instance.new("TextButton")
-local shadow = Instance.new("Folder")
-local UmbraShadow = Instance.new("ImageLabel")
 local ToggleAmmo = Instance.new("TextLabel")
 local UIGradient_47 = Instance.new("UIGradient")
 local GradColor = Instance.new("UIGradient")
@@ -238,7 +236,7 @@ WelcomeTab.Parent = Tabs
 WelcomeTab.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
 WelcomeTab.Position = UDim2.new(0.00864717271, 0, 0.0213459134, 0)
 WelcomeTab.Size = UDim2.new(0, 586, 0, 253)
-WelcomeTab.ZIndex = 2
+WelcomeTab.ZIndex = 12
 
 UICorner.CornerRadius = UDim.new(0, 15)
 UICorner.Parent = WelcomeTab
@@ -268,7 +266,7 @@ ScrollingFrame.BackgroundTransparency = 1.000
 ScrollingFrame.BorderSizePixel = 0
 ScrollingFrame.Position = UDim2.new(0, 424, 0, 57)
 ScrollingFrame.Size = UDim2.new(0, 130, 0, 116)
-ScrollingFrame.ZIndex = 3
+ScrollingFrame.ZIndex = 13
 ScrollingFrame.ScrollBarThickness = 5
 ScrollingFrame.ScrollingEnabled = false
 
@@ -385,7 +383,9 @@ ImageButton.Size = UDim2.new(0, 25, 0, 25)
 ImageButton.Image = "rbxassetid://11278495791"
 ImageButton.ImageColor3 = Color3.fromRGB(0, 255, 0)
 ImageButton.MouseButton1Click:Connect(function()
-
+	
+	
+	local ImageButtonSet = Instance.new("ImageButton")
 	local Buttons_4 = Instance.new("Folder")		
 	local DropDown = Instance.new("Frame")
 	local Selection = Instance.new("TextButton")
@@ -397,8 +397,6 @@ ImageButton.MouseButton1Click:Connect(function()
 	local purp = Instance.new("TextButton")
 	local ThemeValues = Instance.new("Folder")
 	local UIGradient_50 = Instance.new("UIGradient")
-	local shadow = Instance.new("Folder")
-	local UmbraShadow = Instance.new("ImageLabel")
 	local GradColor = Instance.new("UIGradient")
 	local redtoggle = Instance.new("BoolValue")
 	local bluetoggle = Instance.new("BoolValue")
@@ -411,6 +409,8 @@ ImageButton.MouseButton1Click:Connect(function()
 	local Frame_8 = Instance.new("Frame")
 	local UIGradient_sla = Instance.new("UIGradient")
 	local UIGradient_52 = Instance.new("UIGradient")
+	
+
 
 	local red = Color3.new(1, 0, 0)
 	local Dred = Color3.new(0.333333, 0, 0)
@@ -420,6 +420,7 @@ ImageButton.MouseButton1Click:Connect(function()
 	local Ogreen = Color3.new(0,1,0)
 	local purple = Color3.new(0.635294, 0, 1)
 	local Dpurple = Color3.new(0.498039, 0, 0.745098)
+	
 	
 	Buttons_4.Name = "Buttons"
 	Buttons_4.Parent = SettingsWindow
@@ -528,7 +529,7 @@ ImageButton.MouseButton1Click:Connect(function()
 			greentoggle.Value = true
 
 		else
-
+			
 			greentoggle.Value = false
 
 		end
@@ -654,7 +655,7 @@ ImageButton.MouseButton1Click:Connect(function()
 	Goback_3.BackgroundTransparency = 1.000
 	Goback_3.Position = UDim2.new(0, 424, 0, 14)
 	Goback_3.Size = UDim2.new(0, 130, 0, 33)
-	Goback_3.ZIndex = 124124
+	Goback_3.ZIndex = 111
 	Goback_3.Font = Enum.Font.Gotham
 	Goback_3.Text = "Go Back"
 	Goback_3.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -717,21 +718,33 @@ ImageButton.MouseButton1Click:Connect(function()
 	guns.Visible = false
 	welcome.Visible = false
 	sets.Visible = true
+	ImageButton.Visible = false
 
 
+	ImageButtonSet.Parent = Buttons
+	ImageButtonSet.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ImageButtonSet.BackgroundTransparency = 1.000
+	ImageButtonSet.Position = UDim2.new(0.939849555, 0, 0.860759497, 0)
+	ImageButtonSet.Size = UDim2.new(0, 25, 0, 25)
+	ImageButtonSet.Image = "rbxassetid://11278495791"
+	ImageButtonSet.ImageColor3 = Color3.fromRGB(0, 255, 0)
+	ImageButtonSet.MouseButton1Click:Connect(function()
 
+		PlacesTab.Visible = false
+		GunsTab.Visible = false
+		WelcomeTab.Visible = false
+		SettingsTab.Visible = true
+		ImageButton.Visible = false
+
+	end)
 	
 	while true do
 		wait(.1)
 
 
 		if redtoggle.Value == true then
-			GradColor.Color = ColorSequence.new{
 
-				ColorSequenceKeypoint.new(0, red),
-				ColorSequenceKeypoint.new(1, Dred)
-
-			}
+			ImageButtonSet.ImageColor3 = Color3.new(1,0, 0)
 			ImageButton.ImageColor3 = Color3.new(1, 0, 0)
 			UIGradient_2.Color = ColorSequence.new{
 
@@ -1028,14 +1041,10 @@ ImageButton.MouseButton1Click:Connect(function()
 
 			}
 
-		elseif bluetoggle.Value == true then	
-			
-			GradColor.Color = ColorSequence.new{
+		elseif bluetoggle.Value == true then
 
-				ColorSequenceKeypoint.new(0, blue),
-				ColorSequenceKeypoint.new(1, Dblue)
-
-			}
+			GradColor.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, blue), ColorSequenceKeypoint.new(1.00, Dblue)}
+			ImageButtonSet.ImageColor3 = Color3.new(0, 0, 1)
 			ImageButton.ImageColor3 = Color3.new(0, 0, 1)
 			UIGradient_2.Color = ColorSequence.new{
 
@@ -1332,13 +1341,10 @@ ImageButton.MouseButton1Click:Connect(function()
 
 			}
 
-		elseif greentoggle.Value == true then	
-			GradColor.Color = ColorSequence.new{
+		elseif greentoggle.Value == true then
 
-				ColorSequenceKeypoint.new(0, green),
-				ColorSequenceKeypoint.new(1, Ogreen)
-
-			}
+			GradColor.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, green), ColorSequenceKeypoint.new(1.00, Ogreen)}
+			ImageButtonSet.ImageColor3 = Color3.new(0, 1, 0)
 			ImageButton.ImageColor3 = Color3.new(0, 1, 0)
 
 			UIGradient_2.Color = ColorSequence.new{
@@ -1636,7 +1642,10 @@ ImageButton.MouseButton1Click:Connect(function()
 
 			}
 
-		elseif purpletoggle.Value == true then	
+		elseif purpletoggle.Value == true then
+
+			GradColor.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, purple), ColorSequenceKeypoint.new(1.00, Dpurple)}
+			ImageButtonSet.ImageColor3 = Color3.new(0.635294, 0, 11)
 			GradColor.Color = ColorSequence.new{
 
 				ColorSequenceKeypoint.new(0, purple),
@@ -1943,8 +1952,14 @@ ImageButton.MouseButton1Click:Connect(function()
 
 
 	end	
+	
+	
+
 
 end)
+
+
+
 
 Decoration.Name = "Decoration"
 Decoration.Parent = WelcomeWindow
@@ -1955,7 +1970,7 @@ Sections_Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Sections_Text.BackgroundTransparency = 1.000
 Sections_Text.Position = UDim2.new(0, 427, 0, 12)
 Sections_Text.Size = UDim2.new(0, 130, 0, 33)
-Sections_Text.ZIndex = 3
+Sections_Text.ZIndex = 111
 Sections_Text.Font = Enum.Font.Gotham
 Sections_Text.Text = "Sections"
 Sections_Text.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -2028,7 +2043,7 @@ UserIMG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 UserIMG.BackgroundTransparency = 1.000
 UserIMG.Position = UDim2.new(-0.00570093095, 0, 0.00508771092, 0)
 UserIMG.Size = UDim2.new(0, 100, 0, 100)
-UserIMG.ZIndex = 2
+UserIMG.ZIndex = 112
 UserIMG.Image = "rbxassetid://11278330618"
 
 
@@ -2050,7 +2065,7 @@ PlacesTab.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
 PlacesTab.Position = UDim2.new(0.00864715595, 0, 0.021346014, 0)
 PlacesTab.Size = UDim2.new(0, 586, 0, 253)
 PlacesTab.Visible = false
-PlacesTab.ZIndex = 0
+PlacesTab.ZIndex = 110
 
 UICorner_7.CornerRadius = UDim.new(0, 15)
 UICorner_7.Parent = PlacesTab
@@ -2079,7 +2094,7 @@ ScrollingFrame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ScrollingFrame_2.BackgroundTransparency = 1.000
 ScrollingFrame_2.BorderSizePixel = 0
 ScrollingFrame_2.Size = UDim2.new(0, 567, 0, 237)
-ScrollingFrame_2.ZIndex = 4
+ScrollingFrame_2.ZIndex = 114
 ScrollingFrame_2.CanvasPosition = Vector2.new(0, 237)
 
 NormalPlaces.Name = "NormalPlaces"
@@ -2091,7 +2106,7 @@ Page1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Page1.BackgroundTransparency = 1.000
 Page1.Position = UDim2.new(0.0192611143, 0, 0.105351321, 0)
 Page1.Size = UDim2.new(0, 544, 0, 18)
-Page1.ZIndex = 4
+Page1.ZIndex = 114
 
 Layout_2.Name = "Layout"
 Layout_2.Parent = Page1
@@ -2366,7 +2381,7 @@ Page2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Page2.BackgroundTransparency = 1.000
 Page2.Position = UDim2.new(0.0174974464, 0, 0.341638237, 0)
 Page2.Size = UDim2.new(0, 544, 0, 18)
-Page2.ZIndex = 4
+Page2.ZIndex = 114
 
 Layout_3.Name = "Layout"
 Layout_3.Parent = Page2
@@ -2676,7 +2691,7 @@ Goback.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Goback.BackgroundTransparency = 1.000
 Goback.Position = UDim2.new(0, 415, 0, 9)
 Goback.Size = UDim2.new(0, 130, 0, 33)
-Goback.ZIndex = 124124
+Goback.ZIndex = 11124124
 Goback.Font = Enum.Font.Gotham
 Goback.Text = "Go Back"
 Goback.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -2735,7 +2750,7 @@ MoneyRelated.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MoneyRelated.BackgroundTransparency = 1.000
 MoneyRelated.Position = UDim2.new(0.024552118, 0, 0.681434631, 0)
 MoneyRelated.Size = UDim2.new(0, 544, 0, 110)
-MoneyRelated.ZIndex = 4
+MoneyRelated.ZIndex = 114
 
 Layout_4.Name = "Layout"
 Layout_4.Parent = MoneyRelated
@@ -2985,7 +3000,7 @@ GunsTab.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
 GunsTab.Position = UDim2.new(0.00864717271, 0, 0.0213459134, 0)
 GunsTab.Size = UDim2.new(0, 586, 0, 253)
 GunsTab.Visible = false
-GunsTab.ZIndex = 2
+GunsTab.ZIndex = 112
 
 UICorner_23.CornerRadius = UDim.new(0, 15)
 UICorner_23.Parent = GunsTab
@@ -3676,7 +3691,7 @@ Goback_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Goback_2.BackgroundTransparency = 1.000
 Goback_2.Position = UDim2.new(0, 415, 0, 9)
 Goback_2.Size = UDim2.new(0, 130, 0, 33)
-Goback_2.ZIndex = 124124
+Goback_2.ZIndex = 11124124
 Goback_2.Font = Enum.Font.Gotham
 Goback_2.Text = "Go Back"
 Goback_2.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -3731,7 +3746,7 @@ ToggleAmmo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ToggleAmmo.BackgroundTransparency = 1.000
 ToggleAmmo.Position = UDim2.new(0, 55, 0, 297)
 ToggleAmmo.Size = UDim2.new(0, 197, 0, 33)
-ToggleAmmo.ZIndex = 124124
+ToggleAmmo.ZIndex = 11124124
 ToggleAmmo.Font = Enum.Font.Gotham
 ToggleAmmo.RichText = true
 ToggleAmmo.Text = "<i>Toggle Ammo Mode</i>"
@@ -3753,7 +3768,7 @@ ToggleButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ToggleButton.BorderSizePixel = 0
 ToggleButton.Position = UDim2.new(0, -38, 0, 1)
 ToggleButton.Size = UDim2.new(0, 31, 0, 32)
-ToggleButton.ZIndex = 124124
+ToggleButton.ZIndex = 11124124
 
 togglepress.Name = "togglepress"
 togglepress.Parent = ToggleButton
@@ -3761,7 +3776,7 @@ togglepress.BackgroundColor3 = Color3.fromRGB(111, 111, 111)
 togglepress.BackgroundTransparency = 1.000
 togglepress.BorderSizePixel = 0
 togglepress.Size = UDim2.new(0, 31, 0, 32)
-togglepress.ZIndex = 1222222222
+togglepress.ZIndex = 111222222222
 togglepress.Font = Enum.Font.Gotham
 togglepress.RichText = true
 togglepress.Text = "<b>X</b>"
@@ -3809,25 +3824,7 @@ UIGradient_49.Offset = Vector2.new(0, 0.349999994)
 UIGradient_49.Rotation = 90
 UIGradient_49.Parent = line
 
-shadow.Name = "shadow"
-shadow.Parent = Drag
 
-UmbraShadow.Name = "UmbraShadow"
-UmbraShadow.Parent = shadow
-UmbraShadow.AnchorPoint = Vector2.new(0.5, 0.5)
-UmbraShadow.BackgroundTransparency = 1.000
-UmbraShadow.BorderSizePixel = 0
-UmbraShadow.Position = UDim2.new(0.5, -2, 0.48458904, 4)
-UmbraShadow.Size = UDim2.new(1, 11, 1.03082192, -3)
-UmbraShadow.ZIndex = -1
-UmbraShadow.Image = "rbxassetid://1316045217"
-UmbraShadow.ImageTransparency = 0.860
-UmbraShadow.ScaleType = Enum.ScaleType.Slice
-UmbraShadow.SliceCenter = Rect.new(10, 10, 118, 118)
-
-GradColor.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 254, 169)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 255, 0))}
-GradColor.Name = "GradColor"
-GradColor.Parent = UmbraShadow
 
 
 
@@ -3911,6 +3908,9 @@ local function MARDDL_fake_script() -- this will make the gui draggable (smooth)
 	end)
 
 	runService.Heartbeat:Connect(Update)
+	
+
+	
 end
 coroutine.wrap(MARDDL_fake_script)()	
 
