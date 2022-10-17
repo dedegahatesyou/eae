@@ -726,7 +726,12 @@ ImageButton.MouseButton1Click:Connect(function()
 
 
 		if redtoggle.Value == true then
-			
+			GradColor.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
 			ImageButton.ImageColor3 = Color3.new(1, 0, 0)
 			UIGradient_2.Color = ColorSequence.new{
 
@@ -1025,6 +1030,12 @@ ImageButton.MouseButton1Click:Connect(function()
 
 		elseif bluetoggle.Value == true then	
 			
+			GradColor.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
 			ImageButton.ImageColor3 = Color3.new(0, 0, 1)
 			UIGradient_2.Color = ColorSequence.new{
 
@@ -1322,6 +1333,12 @@ ImageButton.MouseButton1Click:Connect(function()
 			}
 
 		elseif greentoggle.Value == true then	
+			GradColor.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
 			ImageButton.ImageColor3 = Color3.new(0, 1, 0)
 
 			UIGradient_2.Color = ColorSequence.new{
@@ -1620,6 +1637,12 @@ ImageButton.MouseButton1Click:Connect(function()
 			}
 
 		elseif purpletoggle.Value == true then	
+			GradColor.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
 			ImageButton.ImageColor3 = Color3.new(0.635294, 0, 1)
 			UIGradient_2.Color = ColorSequence.new{
 
