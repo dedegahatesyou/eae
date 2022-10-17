@@ -1,7 +1,14 @@
--- Parkour Bag Finder
--- READ BELOW
--- It will pop up a message every 5 seconds, it will also appear in the console [PRESS F9].
--- Also, do not abuse the tp, it will ban you.
+--[[ 
+
+                                                                    Parkour Bag Finder
+                                                                       !READ BELOW!
+
+                                It will pop up a message every 5 seconds, it will also appear in the console [PRESS F9].
+                                     Also, do not spam teleport to the crates, the game will probably auto ban you
+                                                                    Use Dex Explorer
+                                        Script = loadstring(game:HttpGetAsync("https://pastebin.com/raw/fPP8bZ8Z"))()
+
+]]--
 
 local SGui = game:GetService("StarterGui")
 
