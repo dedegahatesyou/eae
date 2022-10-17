@@ -1,4 +1,3 @@
-
 local teleports = Instance.new("ScreenGui")
 local Drag = Instance.new("Frame")
 local Tabs = Instance.new("Folder")
