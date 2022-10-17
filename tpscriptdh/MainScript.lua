@@ -191,6 +191,31 @@ local UIGradient_48 = Instance.new("UIGradient")
 local line = Instance.new("Frame")
 local UIGradient_49 = Instance.new("UIGradient")
 local togglevalue = Instance.new("BoolValue")
+local SettingsTab = Instance.new("Frame")
+local UICorner_36 = Instance.new("UICorner")
+local SettingsWindow = Instance.new("Frame")
+local UICorner_37 = Instance.new("UICorner")
+
+SettingsTab.Name = "SettingsTab"
+SettingsTab.Parent = Tabs
+SettingsTab.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+SettingsTab.Position = UDim2.new(0.00864717271, 0, 0.0213459134, 0)
+SettingsTab.Size = UDim2.new(0, 586, 0, 253)
+SettingsTab.Visible = false
+
+UICorner_36.CornerRadius = UDim.new(0, 15)
+UICorner_36.Parent = SettingsTab
+
+SettingsWindow.Name = "SettingsWindow"
+SettingsWindow.Parent = SettingsTab
+SettingsWindow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SettingsWindow.BorderSizePixel = 0
+SettingsWindow.Position = UDim2.new(0.0145719489, 0, 0.0367540196, 0)
+SettingsWindow.Size = UDim2.new(0, 567, 0, 237)
+
+UICorner_37.CornerRadius = UDim.new(0, 5)
+UICorner_37.Parent = SettingsWindow
+
 
 --Properties:
 
@@ -359,6 +384,1542 @@ ImageButton.Position = UDim2.new(0.939849555, 0, 0.860759497, 0)
 ImageButton.Size = UDim2.new(0, 25, 0, 25)
 ImageButton.Image = "rbxassetid://11278495791"
 ImageButton.ImageColor3 = Color3.fromRGB(0, 255, 0)
+ImageButton.MouseButton1Click:Connect(function()
+
+	local Buttons_4 = Instance.new("Folder")		
+	local DropDown = Instance.new("Frame")
+	local Selection = Instance.new("TextButton")
+	local Menu = Instance.new("ScrollingFrame")
+	local UI = Instance.new("UIListLayout")
+	local greenT = Instance.new("TextButton")
+	local blueT = Instance.new("TextButton")
+	local redT = Instance.new("TextButton")
+	local purp = Instance.new("TextButton")
+	local ThemeValues = Instance.new("Folder")
+	local UIGradient_50 = Instance.new("UIGradient")
+	local shadow = Instance.new("Folder")
+	local UmbraShadow = Instance.new("ImageLabel")
+	local GradColor = Instance.new("UIGradient")
+	local redtoggle = Instance.new("BoolValue")
+	local bluetoggle = Instance.new("BoolValue")
+	local greentoggle = Instance.new("BoolValue")
+	local purpletoggle = Instance.new("BoolValue")
+	local Goback_3 = Instance.new("TextLabel")
+	local UIGradient_50 = Instance.new("UIGradient")
+	local UIGradient_51 = Instance.new("UIGradient")
+	local TextButton_3 = Instance.new("TextButton")
+	local Frame_8 = Instance.new("Frame")
+	local UIGradient_sla = Instance.new("UIGradient")
+	local UIGradient_52 = Instance.new("UIGradient")
+
+	local red = Color3.new(1, 0, 0)
+	local Dred = Color3.new(0.333333, 0, 0)
+	local blue = Color3.new(0, 0.333333, 1)
+	local Dblue = Color3.new(0, 0, 0.498039)
+	local green = Color3.new(0, 0.996078, 0.662745)
+	local Ogreen = Color3.new(0,1,0)
+	local purple = Color3.new(0.635294, 0, 1)
+	local Dpurple = Color3.new(0.498039, 0, 0.745098)
+	
+	Buttons_4.Name = "Buttons"
+	Buttons_4.Parent = SettingsWindow
+
+	DropDown.Name = "DropDown"
+	DropDown.Parent = Buttons_4
+	DropDown.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	DropDown.BackgroundTransparency = 1.000
+	DropDown.BorderSizePixel = 0
+	DropDown.Position = UDim2.new(0.039903, 0, 0.0523207784, 0)
+	DropDown.Size = UDim2.new(0.360125929, 0, 0.155168667, 0)
+
+	Menu.Name = "Menu"
+	Menu.Parent = DropDown
+	Menu.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Menu.BackgroundTransparency = 1.000
+	Menu.BorderSizePixel = 0
+	Menu.Position = UDim2.new(0, 0, 1, 0)
+	Menu.Size = UDim2.new(1, 0, 0, 0)
+	Menu.ScrollBarThickness = 8
+
+	function fitAll()
+		Menu.CanvasSize = UDim2.new(1, 0, 0, Menu.UI.AbsoluteContentSize.Y)
+	end		
+
+	function trigger()
+		if not open then
+			Menu:TweenSize(UDim2.new(1, 0, 5, 0), "Out", "Sine", 0.15, true)
+			for _, button in pairs(Menu:GetChildren()) do
+				if button:IsA("TextButton") then
+					button.Visible = true
+				end
+			end
+			wait(0.15)
+			fitAll()
+			Menu.ScrollBarImageTransparency = 0
+			open = true
+		else
+			Menu:TweenSize(UDim2.new(1, 0, 0, 0), "Out", "Sine", 0.15, true)
+			wait(0.05)
+			for _, button in pairs(Menu:GetChildren()) do
+				if button:IsA("TextButton") then
+					button.Visible = false
+				end
+			end
+			Menu.ScrollBarImageTransparency = 1
+			open = false
+		end
+	end
+
+
+
+
+	Selection.Name = "Selection"
+	Selection.Parent = DropDown
+	Selection.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Selection.BackgroundTransparency = 1.000
+	Selection.Size = UDim2.new(1.00274909, 0, 1, 0)
+	Selection.Font = Enum.Font.SourceSansSemibold
+	Selection.Text = "Select Theme"
+	Selection.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Selection.TextScaled = true
+	Selection.TextSize = 14.000
+	Selection.TextWrapped = true
+	Selection.MouseButton1Click:Connect(trigger)
+
+	for _, button in pairs(Menu:GetChildren()) do
+		if button:IsA("TextButton") then
+			button.MouseEnter:Connect(function()
+				button.BackgroundTransparency = 0.8
+			end)
+			button.MouseLeave:Connect(function()
+				button.BackgroundTransparency = 1
+			end)
+			button.MouseButton1Click:Connect(function()
+				Selection.Text = button.Text
+				trigger()
+			end)
+		end
+	end
+
+	UI.Name = "UI"
+	UI.Parent = Menu
+	UI.SortOrder = Enum.SortOrder.LayoutOrder
+
+	greenT.Name = "green"
+	greenT.Parent = Menu
+	greenT.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	greenT.BackgroundTransparency = 1.000
+	greenT.BorderSizePixel = 0
+	greenT.Size = UDim2.new(1, 0, 0, 35)
+	greenT.Visible = false
+	greenT.Font = Enum.Font.SourceSans
+	greenT.Text = "Green"
+	greenT.TextColor3 = Color3.fromRGB(255, 255, 255)
+	greenT.TextScaled = true
+	greenT.TextSize = 20.000
+	greenT.TextWrapped = true
+	greenT.MouseButton1Click:Connect(function()
+
+		if greentoggle.Value == false then
+
+			purpletoggle.Value = false
+			redtoggle.Value = false
+			bluetoggle.Value = false
+			greentoggle.Value = true
+
+		else
+
+			greentoggle.Value = false
+
+		end
+
+	end)
+
+	blueT.Name = "blue"
+	blueT.Parent = Menu
+	blueT.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	blueT.BackgroundTransparency = 1.000
+	blueT.BorderSizePixel = 0
+	blueT.Size = UDim2.new(1, 0, 0, 35)
+	blueT.Visible = false
+	blueT.Font = Enum.Font.SourceSans
+	blueT.Text = "Blue"
+	blueT.TextColor3 = Color3.fromRGB(255, 255, 255)
+	blueT.TextScaled = true
+	blueT.TextSize = 20.000
+	blueT.TextWrapped = true
+	blueT.MouseButton1Click:Connect(function()
+
+		if bluetoggle.Value == false then
+
+			purpletoggle.Value = false
+			redtoggle.Value = false
+			bluetoggle.Value = true
+			greentoggle.Value = false
+
+		else
+
+			bluetoggle.Value = false
+			greentoggle.Value = true
+
+		end
+
+	end)
+
+
+	redT.Name = "red"
+	redT.Parent = Menu
+	redT.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	redT.BackgroundTransparency = 1.000
+	redT.BorderSizePixel = 0
+	redT.Size = UDim2.new(1, 0, 0, 35)
+	redT.Visible = false
+	redT.Font = Enum.Font.SourceSans
+	redT.Text = "Red"
+	redT.TextColor3 = Color3.fromRGB(255, 255, 255)
+	redT.TextScaled = true
+	redT.TextSize = 20.000
+	redT.TextWrapped = true
+	redT.MouseButton1Click:Connect(function()
+
+		if redtoggle.Value == false then
+
+			purpletoggle.Value = false
+			redtoggle.Value = true
+			bluetoggle.Value = false
+			greentoggle.Value = false
+
+		else
+
+			redtoggle.Value = false
+			greentoggle.Value = true
+
+		end
+
+	end)
+
+
+	purp.Name = "purp"
+	purp.Parent = Menu
+	purp.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	purp.BackgroundTransparency = 1.000
+	purp.BorderSizePixel = 0
+	purp.Size = UDim2.new(1, 0, 0, 35)
+	purp.Visible = false
+	purp.Font = Enum.Font.SourceSans
+	purp.Text = "Purple"
+	purp.TextColor3 = Color3.fromRGB(255, 255, 255)
+	purp.TextScaled = true
+	purp.TextSize = 20.000
+	purp.TextWrapped = true
+	purp.MouseButton1Click:Connect(function()
+
+		if purpletoggle.Value == false then
+
+			purpletoggle.Value = true
+			redtoggle.Value = false
+			bluetoggle.Value = false
+			greentoggle.Value = false
+
+		else
+
+			purpletoggle.Value = false
+			greentoggle.Value = true
+
+		end
+
+
+
+	end)
+
+
+	ThemeValues.Name = "ThemeValues"
+	ThemeValues.Parent = DropDown
+
+	redtoggle.Name = "RedTheme"
+	redtoggle.Parent = ThemeValues
+
+	bluetoggle.Name = "BlueTheme"
+	bluetoggle.Parent = ThemeValues
+
+	greentoggle.Name = "GreenTheme"
+	greentoggle.Parent = ThemeValues
+
+	purpletoggle.Name = "PurpleTheme"
+	purpletoggle.Parent = ThemeValues
+	
+	Goback_3.Name = "Goback"
+	Goback_3.Parent = Buttons_4
+	Goback_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Goback_3.BackgroundTransparency = 1.000
+	Goback_3.Position = UDim2.new(0, 424, 0, 14)
+	Goback_3.Size = UDim2.new(0, 130, 0, 33)
+	Goback_3.ZIndex = 124124
+	Goback_3.Font = Enum.Font.Gotham
+	Goback_3.Text = "Go Back"
+	Goback_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Goback_3.TextScaled = true
+	Goback_3.TextSize = 14.000
+	Goback_3.TextWrapped = true
+	Goback_3.TextXAlignment = Enum.TextXAlignment.Left
+	Goback_3.TextYAlignment = Enum.TextYAlignment.Bottom
+	
+	TextButton_3.Parent = Goback_3
+	TextButton_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextButton_3.BackgroundTransparency = 1.000
+	TextButton_3.Position = UDim2.new(-0.0615384616, 0, 0, 0)
+	TextButton_3.Size = UDim2.new(0, 138, 0, 34)
+	TextButton_3.Font = Enum.Font.SourceSans
+	TextButton_3.Text = ""
+	TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+	TextButton_3.TextSize = 14.000
+	TextButton_3.MouseButton1Click:Connect(function()
+		
+		SettingsTab.Visible = false
+		WelcomeTab.Visible = true
+		
+	end)
+	
+	Frame_8.Parent = Goback_3
+	Frame_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Frame_8.BorderSizePixel = 0
+	Frame_8.Position = UDim2.new(0, 0, 0, 33)
+	Frame_8.Size = UDim2.new(0, 123, 0, 1)
+	
+	UIGradient_sla.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 255, 179)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 170, 0))}
+	UIGradient_sla.Offset = Vector2.new(0, 0.349999994)
+	UIGradient_sla.Rotation = 90
+	UIGradient_sla.Parent = Frame_8
+
+	UIGradient_50.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(80, 80, 80)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(3, 2, 2))}
+	UIGradient_50.Rotation = 90
+	UIGradient_50.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.50), NumberSequenceKeypoint.new(1.00, 0.50)}
+	UIGradient_50.Parent = SettingsWindow
+
+	UIGradient_51.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 255, 179)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 170, 0))}
+	UIGradient_51.Offset = Vector2.new(0, 0.349999994)
+	UIGradient_51.Rotation = 90
+	UIGradient_51.Parent = Goback_3
+
+
+	UIGradient_52.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(80, 80, 80)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(3, 2, 2))}
+	UIGradient_52.Rotation = 90
+	UIGradient_52.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.50), NumberSequenceKeypoint.new(1.00, 0.50)}
+	UIGradient_52.Parent = SettingsWindow
+
+	local places = Tabs.PlacesTab
+	local guns = Tabs.GunsTab
+	local welcome = Tabs.WelcomeTab
+	local sets = Tabs.SettingsTab
+
+
+	places.Visible = false
+	guns.Visible = false
+	welcome.Visible = false
+	sets.Visible = true
+
+
+
+	
+	while true do
+		wait(.1)
+
+
+		if redtoggle.Value == true then
+
+			UIGradient_2.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_3.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_4.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_5.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_6.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_7.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_8.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_9.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_10.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_12.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_13.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_14.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_15.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_16.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_17.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_18.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_19.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_20.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_21.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_22.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_23.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_24.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_25.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_26.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_27.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_28.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_29.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_30.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_31.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_33.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_34.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_35.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_36.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_37.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_38.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_39.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_40.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_41.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_42.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_43.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_44.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_45.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_46.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_47.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_48.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_49.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_51.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_52.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+			UIGradient_sla.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, red),
+				ColorSequenceKeypoint.new(1, Dred)
+
+			}
+
+		elseif bluetoggle.Value == true then	
+
+			UIGradient_2.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_3.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_4.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_5.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_6.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_7.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_8.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_9.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_10.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_12.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_13.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_14.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_15.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_16.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_17.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_18.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_19.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_20.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_21.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_22.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_23.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_24.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_25.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_26.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_27.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_28.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_29.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_30.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_31.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_33.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_34.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_35.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_36.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_37.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_38.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_39.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_40.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_41.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_42.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_43.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_44.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_45.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_46.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_47.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_48.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_49.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_51.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_52.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+			UIGradient_sla.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, blue),
+				ColorSequenceKeypoint.new(1, Dblue)
+
+			}
+
+		elseif greentoggle.Value == true then	
+
+
+			UIGradient_2.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_3.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_4.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_5.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_6.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_7.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_8.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_9.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_10.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_12.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_13.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_14.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_15.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_16.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_17.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_18.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_19.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_20.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_21.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_22.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_23.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_24.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_25.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_26.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_27.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_28.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_29.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_30.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_31.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_33.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_34.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_35.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_36.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_37.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_38.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_39.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_40.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_41.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_42.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_43.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_44.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_45.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_46.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_47.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_48.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_49.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_51.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_52.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+			UIGradient_sla.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, green),
+				ColorSequenceKeypoint.new(1, Ogreen)
+
+			}
+
+		elseif purpletoggle.Value == true then	
+
+			UIGradient_2.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_3.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_4.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_5.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_6.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_7.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_8.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_9.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_10.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_12.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_13.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_14.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_15.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_16.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_17.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_18.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_19.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_20.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_21.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_22.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_23.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_24.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_25.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_26.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_27.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_28.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_29.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_30.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_31.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_33.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_34.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_35.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_36.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_37.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_38.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_39.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_40.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_41.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_42.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_43.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_44.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_45.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_46.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_47.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_48.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_49.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_51.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_52.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+			UIGradient_sla.Color = ColorSequence.new{
+
+				ColorSequenceKeypoint.new(0, purple),
+				ColorSequenceKeypoint.new(1, Dpurple)
+
+			}
+
+		end
+
+
+	end	
+
+end)
 
 Decoration.Name = "Decoration"
 Decoration.Parent = WelcomeWindow
@@ -1177,13 +2738,13 @@ AdminPrison.MouseLeave:Connect(function()
 end)
 
 AdminPrison.MouseButton1Click:Connect(function()
-	
-		local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
-		local location = CFrame.new(-798.395996, -39.6416817, -857.692688, -0.999758482, 1.88793052e-08, 0.0219778698, 2.05554329e-08, 1, 7.60384467e-08, -0.0219778698, 7.64718493e-08, -0.999758482)
-		local humanoid = game.Players.LocalPlayer.Character.Humanoid
-		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-		wait(0.1)
-		pl.CFrame = location
+
+	local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+	local location = CFrame.new(-798.395996, -39.6416817, -857.692688, -0.999758482, 1.88793052e-08, 0.0219778698, 2.05554329e-08, 1, 7.60384467e-08, -0.0219778698, 7.64718493e-08, -0.999758482)
+	local humanoid = game.Players.LocalPlayer.Character.Humanoid
+	humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	wait(0.1)
+	pl.CFrame = location
 
 end)
 
@@ -1467,9 +3028,9 @@ end)
 
 
 Rev_2.MouseButton1Click:Connect(function()
-	
+
 	if togglevalue.Value == true then
-		
+
 		local lS = game:GetService("Players").LocalPlayer;
 		local AS = workspace.Ignored.Shop["12 [Revolver Ammo] - $75"];
 		local SS = lS.Character.HumanoidRootPart.Position;
@@ -1479,9 +3040,9 @@ Rev_2.MouseButton1Click:Connect(function()
 		fireclickdetector(workspace.Ignored.Shop["12 [Revolver Ammo] - $75"].ClickDetector);
 		lS.Character.HumanoidRootPart.CFrame = CFrame.new(SS);
 		lS.Character.HumanoidRootPart.CFrame = CFrame.new(SS);
-		
+
 	elseif togglevalue.Value == false then
-		
+
 		local lS = game:GetService("Players").LocalPlayer;
 		local AS = workspace.Ignored.Shop["[Revolver] - $1300"];
 		local SS = lS.Character.HumanoidRootPart.Position;
@@ -1492,7 +3053,7 @@ Rev_2.MouseButton1Click:Connect(function()
 		lS.Character.HumanoidRootPart.CFrame = CFrame.new(SS);
 		lS.Character.HumanoidRootPart.CFrame = CFrame.new(SS);
 
-	
+
 	end
 
 end)
@@ -1527,13 +3088,13 @@ DB_2.Image = "http://www.roblox.com/asset/?id=8529606914"
 
 DB_2.MouseEnter:Connect(function()
 
-		TextLabel_18.TextTransparency = 0
+	TextLabel_18.TextTransparency = 0
 
-	end)
+end)
 
-	DB_2.MouseLeave:Connect(function()
+DB_2.MouseLeave:Connect(function()
 
-		TextLabel_18.TextTransparency = 1
+	TextLabel_18.TextTransparency = 1
 
 end)
 
@@ -2184,19 +3745,19 @@ togglepress.TextSize = 25.000
 togglepress.TextStrokeTransparency = 0.000
 togglepress.TextTransparency = 1.000
 togglepress.MouseButton1Click:Connect(function()
-	
+
 	if togglevalue.Value == true then
-		
+
 		togglevalue.Value = false
 		togglepress.TextTransparency = 1
-		
+
 	else
-		
+
 		togglevalue.Value = true
 		togglepress.TextTransparency = 0
-		
+
 	end
-	
+
 end)
 
 togglevalue.Name = "Toggled"
@@ -2222,9 +3783,6 @@ UIGradient_49.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.f
 UIGradient_49.Offset = Vector2.new(0, 0.349999994)
 UIGradient_49.Rotation = 90
 UIGradient_49.Parent = line
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/dedegahatesyou/eae/main/tpscriptdh/CreateSettingsInstances.lua"))()
-wait(0.5)
 
 shadow.Name = "shadow"
 shadow.Parent = Drag
@@ -2252,16 +3810,23 @@ GradColor.Parent = UmbraShadow
 
 -- this will show users avatar image, and username on the welcome section
 
-local player = game.Players.LocalPlayer
-local thumbType = Enum.ThumbnailType.AvatarBust
+local function AvatarKid() -- this will make the gui draggable (smooth)
 
-local thumbSize = Enum.ThumbnailSize.Size420x420
+	local script = Instance.new('LocalScript', WelcomeWindow)
 
-local content, isReady = game.Players:GetUserThumbnailAsync(game.Players.LocalPlayer.UserId, thumbType, thumbSize)
+	local player = game.Players.LocalPlayer
+	local thumbType = Enum.ThumbnailType.AvatarBust
+
+	local thumbSize = Enum.ThumbnailSize.Size420x420
+
+	local content, isReady = game.Players:GetUserThumbnailAsync(game.Players.LocalPlayer.UserId, thumbType, thumbSize)
 
 
-UserIMG.Image = content
-User_Name.Text = "<b>"..(player.Name).."!</b>"
+	UserIMG.Image = content
+	User_Name.Text = "<b>"..(player.Name).."!</b>"
+
+end
+coroutine.wrap(AvatarKid)()	
 
 --[]--
 
@@ -2322,6 +3887,6 @@ local function MARDDL_fake_script() -- this will make the gui draggable (smooth)
 
 	runService.Heartbeat:Connect(Update)
 end
-coroutine.wrap(MARDDL_fake_script)()
-	
+coroutine.wrap(MARDDL_fake_script)()	
+
 --[]--
