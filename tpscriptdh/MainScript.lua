@@ -191,16 +191,6 @@ local UIGradient_48 = Instance.new("UIGradient")
 local line = Instance.new("Frame")
 local UIGradient_49 = Instance.new("UIGradient")
 local togglevalue = Instance.new("BoolValue")
-local	SettingsTab = Instance.new("Frame")
-local	UICorner_36 = Instance.new("UICorner")
-local	SettingsWindow = Instance.new("Frame")
-local	UICorner_37 = Instance.new("UICorner")
-local	Buttons_4 = Instance.new("Folder")
-local	ImageButton_2 = Instance.new("ImageButton")
-local	DropDown = Instance.new("Frame")
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/dedegahatesyou/eae/main/tpscriptdh/CreateInstances.lua",true))()
-wait(1)
 
 --Properties:
 
