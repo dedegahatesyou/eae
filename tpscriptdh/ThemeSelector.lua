@@ -3,25 +3,7 @@ local teleports = game.CoreGui:WaitForChild("teleports")
 
 
 
-local	SettingsTab = Instance.new("Frame")
-local	UICorner_36 = Instance.new("UICorner")
-local	SettingsWindow = Instance.new("Frame")
-local	UICorner_37 = Instance.new("UICorner")
-local	Buttons_4 = Instance.new("Folder")
-local	ImageButton_2 = Instance.new("ImageButton")
-local	DropDown = Instance.new("Frame")
-local	Selection = Instance.new("TextButton")
-local	Menu = Instance.new("ScrollingFrame")
-local	UI = Instance.new("UIListLayout")
-local	green = Instance.new("TextButton")
-local	blue = Instance.new("TextButton")
-local	red = Instance.new("TextButton")
-local	purp = Instance.new("TextButton")
-local	ThemeValues = Instance.new("Folder")
-local	UIGradient_50 = Instance.new("UIGradient")
-local	shadow = Instance.new("Folder")
-local	UmbraShadow = Instance.new("ImageLabel")
-local	GradColor = Instance.new("UIGradient")
+
 
 local redtoggle = Instance.new("BoolValue")
 local bluetoggle = Instance.new("BoolValue")
