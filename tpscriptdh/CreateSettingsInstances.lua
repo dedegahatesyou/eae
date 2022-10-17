@@ -164,7 +164,7 @@ UIGradient_50.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00,
 UIGradient_50.Parent = SettingsWindow
 
 	Selection.RichText = true
-	buttons.green.RichText = true
-	buttons.red.RichText = true
-	buttons.blue.RichText = true
-	buttons.purp.RichText = true
+	green.RichText = true
+	red.RichText = true
+	blue.RichText = true
+	purp.RichText = true
