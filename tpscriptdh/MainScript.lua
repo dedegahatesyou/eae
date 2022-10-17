@@ -199,6 +199,8 @@ local	Buttons_4 = Instance.new("Folder")
 local	ImageButton_2 = Instance.new("ImageButton")
 local	DropDown = Instance.new("Frame")
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dedegahatesyou/eae/main/tpscriptdh/CreateInstances.lua",true))()
+wait(1)
 
 --Properties:
 
@@ -2231,6 +2233,9 @@ UIGradient_49.Offset = Vector2.new(0, 0.349999994)
 UIGradient_49.Rotation = 90
 UIGradient_49.Parent = line
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dedegahatesyou/eae/main/tpscriptdh/CreateSettingsInstances.lua")
+wait(0.5)
+
 shadow.Name = "shadow"
 shadow.Parent = Drag
 
@@ -2251,9 +2256,11 @@ GradColor.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromR
 GradColor.Name = "GradColor"
 GradColor.Parent = UmbraShadow
 
+
+
 -- Scripts:
 
--- this makes show users avatar image, and username on the welcome section
+-- this will show users avatar image, and username on the welcome section
 
 local player = game.Players.LocalPlayer
 local thumbType = Enum.ThumbnailType.AvatarBust
@@ -2266,9 +2273,9 @@ local content, isReady = game.Players:GetUserThumbnailAsync(game.Players.LocalPl
 UserIMG.Image = content
 User_Name.Text = "<b>"..(player.Name).."!</b>"
 
+--[]--
 
-
-local function MARDDL_fake_script() -- draggable script
+local function MARDDL_fake_script() -- this will make the gui draggable (smooth)
 	local script = Instance.new('LocalScript', Drag)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -2326,3 +2333,5 @@ local function MARDDL_fake_script() -- draggable script
 	runService.Heartbeat:Connect(Update)
 end
 coroutine.wrap(MARDDL_fake_script)()
+	
+--[]--
