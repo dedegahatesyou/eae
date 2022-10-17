@@ -2223,7 +2223,7 @@ UIGradient_49.Offset = Vector2.new(0, 0.349999994)
 UIGradient_49.Rotation = 90
 UIGradient_49.Parent = line
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/dedegahatesyou/eae/main/tpscriptdh/CreateSettingsInstances.lua")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dedegahatesyou/eae/main/tpscriptdh/CreateSettingsInstances.lua"))()
 wait(0.5)
 
 shadow.Name = "shadow"
